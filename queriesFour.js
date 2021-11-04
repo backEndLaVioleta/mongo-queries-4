@@ -1,87 +1,176 @@
-db.getCollection('medias').find({})
-
-/*db.medias.update(
-{Titulo:"Matrix"},
-{$set:{
-    tipo: "DVD",
-    Titulo: "John Wick",
-    estreno: 1999,
-    genero: "action"
-    }}
-);*/
-  //db.getCollection('medias').find({})  
- /*db.getCollection('medias').insertOne({
-      "tipo": "Libro",
-      "Titulo": "Constantine",
-      "capitulos": 12,
-      "leidos": 3
-      });*/
-//db.getCollection('medias').find({})  
-/*db.medias.updateOne(
-{titulo:"Java para todos"},
-{$unset:{editorial:""}}
-);*/
-/*db.medias.updateOne(
-{titulo: "Java para todos"},
-{
-    $addToSet:{"Autor": "Maria Sancho"}
-    }
-)*/
-/*db.medias.update(
-{Titulo: "Matrix"},
-{$set: {
-    "tipo":"DVD",
-    "Titulo":"Matrix",
-    "estreno":1999.0,
-    "actores":[
-    "Keanu Reeves",
-    "Carry-Anne Moss",
-    "Laurence Fishburne",
-    "Hugo Weaving",
-    "Gloria Foster",
-    "Joe Pantoliano"]}}
-)*/
-/*db.medias.updateOne(
-{Titulo: "Matrix"},
-{$push:{actores: {$each: ["Antonio Banderas", "Brad Pitt"]}} }
-)*/
-
-/*db.medias.updateOne(
-{Titulo: "Matrix"},
-{$addToSet:{actores:  ["John Wick", "Brad Pitt", "John Rambo"]} }
-)*/
-
-/*db.medias.updateOne(
-{Titulo: "Matrix"},
-{$pop:{actores:-1, actores:-1}}
-)*/
-
-/*db.medias.updateOne(
-{Titulo: "Matrix"},
-{$push:{actores:{ $each:["Antonio Banderas", "Joe Pantoliano"]}}}
-)*/
-/*db.medias.updateOne(
-{Titulo: "Matrix"},
-{$pullAll:{actores:["Antonio Banderas", "Joe Pantoliano"]}}
-)*/
-/*db.medias.updateOne(
-{Titulo: "Recuerdos"},
-{$push: {canciones:
-    
-        {
-            "cancion" : 5.0,
-            "titulo" : "El atardecer",
-            "longitud" : "3:20"
-        }
-    
-    }}
-)*/
-/*db.medias.updateOne(
-{$and:[{Titulo: "Recuerdos"}, {"canciones.cancion": 5.0}]},
-{$set: {"canciones.$.cancion": 3.0}}
-)*/
-db.medias.update(
-{Titulo: "Recuerdos"},
-{$pull:{""} }
-)
-db.getCollection('medias').find({})  
+// db.getCollection('media').find({});
+// import and create db
+
+// mongoimport --db media --collection media --type json --file media.json
+
+
+/*db.media.updateOne(
+// from where to get the one to be updated
+{Titulo:"Matrix"},
+// what we want to update.
+// carefull, it will be left as we write it down in this case
+{$set: 
+    {
+    "tipo" : "DVD",
+    "Titulo" : "Matrix",
+    "estreno" : 1999,
+    "actores" : [ 
+        "Keanu Reeves", 
+        "Carry-Anne Moss", 
+        "Laurence Fishburne", 
+        "Hugo Weaving", 
+        "Gloria Foster", 
+        "Joe Pantoliano"
+    ],
+        "genero": "accion"
+    }}
+);*/
+
+/*db.media.insertOne(
+
+{
+
+    tipo:"Libro",
+
+    Titulo:"Constantine",
+
+    capitulos: 12,
+
+    leidos: 3
+
+    }
+
+);*/
+
+/*db.media.updateOne(
+
+{Titulo: "Constantine"},
+
+{
+
+    $inc: {leido:5}
+
+    }
+
+);*/
+
+/*db.media.updateOne(
+
+{Titulo: "Matrix"},
+
+{$set: {genero: "sci-fi"}}
+
+);*/
+
+/*db.media.updateOne(
+
+    {titulo: "Java para todos"},
+
+    {$unset: {editorial: ""}}
+
+);*/
+
+/*db.media.updateOne(
+
+{titulo: "Java para todos"},
+
+{$push: {Autor: "María Sancho" }}
+
+);*/
+
+/*db.media.updateOne(
+
+    {Titulo: "Matrix"},
+
+    {$push: {actores: { $each: ["Antonio Banderas", "Brad Pitt"]}}}
+
+);*/
+
+/*db.media.updateOne(
+
+    {Titulo: "Matrix"},
+
+    {$addToSet: {actores: { $each: ["Joe Pantoliano", "Brad Pitt", "Natalie Portman"]}}}
+
+);*/
+
+/*db.media.updateOne(
+
+    {Titulo: "Matrix"},
+
+    {$pop: {actores:-1,actores:1}}
+
+);*/
+
+/*db.media.updateOne(
+
+    {Titulo: "Matrix"},
+
+    {$push:{actores:{$each:["Joe Pantoliano","Antonio Banderas"]}}}
+
+);*/
+
+/*db.media.updateOne(
+
+{Titulo:"Matrix"},
+
+{$pullAll: {actores: ["Antonio Banderas", "Joe Pantoliano"]}}
+
+);*/
+
+/*db.media.updateOne(
+
+{Titulo: "Recuerdos"},
+
+{$push: {canciones:
+
+    
+
+        {
+
+            cancion : 5,
+
+            titulo : "El atardecer",
+
+            longitud : "6:50"
+
+        }
+
+    
+
+    }}
+
+);*/
+
+/*db.media.updateOne(
+
+    {$and:[
+
+        {Titulo: "Recuerdos"},
+
+        {"canciones.cancion": 5}
+
+        ]
+
+    },
+
+    {$set:{"canciones.$.cancion": 3}}
+
+);*/
+
+/*db.multimedia.updateOne(
+
+{$and: [
+
+    {Titulo: "Recuerdos"},
+
+    {Artista: "Los piratas"}
+
+    ]},
+
+    {$set: {Artista: "Los piratillas"}}
+
+);*/
+
+// db.media.renameCollection('multimedia');
+db.getCollection('multimedia').find({});
